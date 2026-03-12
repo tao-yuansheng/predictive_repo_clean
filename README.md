@@ -87,7 +87,7 @@ results/{agent}/{task}/{vague|specific}/
 
 ### Step 1 — Clone the repo and create your branch
 ```bash
-git clone <repo-url>
+git clone https://github.com/tao-yuansheng/predictive_repo_clean.git
 cd msin0097-benchmark
 git checkout -b run/claude-code     # Member 2
 # git checkout -b run/codex         # Member 3
