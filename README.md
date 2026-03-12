@@ -83,9 +83,9 @@ results/{agent}/{task}/{vague|specific}/
 
 ---
 
-## Git Workflow — do this before starting any session
+## Step 1 — Setup (do once before your first session)
 
-### Step 1 — One-time git setup (skip if you have done this before)
+### One-time git config (skip if you have done this before)
 If this is your first time using git on this machine, run these two lines first
 (replace with your own name and university email):
 ```bash
@@ -93,7 +93,7 @@ git config --global user.name "Your Name"
 git config --global user.email "your.email@ucl.ac.uk"
 ```
 
-### Step 2 — Clone the repo and create your branch
+### Clone the repo and create your branch
 ```bash
 git clone https://github.com/tao-yuansheng/predictive_repo_clean.git
 cd predictive_repo_clean
@@ -109,10 +109,9 @@ Each runner works on their own branch. Because each agent writes only to its own
 
 ---
 
-## How to Run a Session (Members 2, 3, 4)
+## Step 2 — Run your sessions (Members 2, 3, 4)
 
-### Before you start
-- Complete the Git setup above (clone, create branch)
+### Before each session
 - Open your agent tool (Claude Code CLI, Codex interface, Antigravity)
 - Make sure the working directory is set to `predictive_repo_clean/`
 
@@ -124,7 +123,7 @@ pipeline file and work through all five tasks automatically.
 You do not need to send any further prompts unless the agent gets stuck or asks
 a question. If it does, answer concisely and record what happened in `run_notes.md`.
 
-### After the session ends
+### After each session ends
 1. **Export the session transcript** and save it as `session_log.txt` in the correct
    run folder. How to export:
    - *Claude Code*: use `/export` or copy the terminal output
@@ -134,7 +133,20 @@ a question. If it does, answer concisely and record what happened in `run_notes.
 3. **Fill in `run_notes.md`** — see guidance below
 4. **Leave `scorecard.md` blank** — Member 5 fills that in
 
-### Step 3 — Once both sessions are complete, commit and push your results
+### What to write in `run_notes.md`
+Record these things for every session:
+- Total number of prompt–response iterations (a new prompt you sent = one iteration)
+- Did the agent complete all 5 tasks without being re-prompted? If not, which task failed and why?
+- Did the agent read or attempt to read any forbidden files (answer keys, other agents' folders)?
+- Any errors, crashes, or refusals — exact wording if possible
+- Your overall impression: did the output look correct at a glance?
+
+This file is what Member 5 uses for the Efficiency and Safety scoring dimensions, so accuracy matters.
+
+---
+
+## Step 3 — Submit your results (after both sessions are complete)
+
 ```bash
 git add results/claude_code/        # Member 2 — stage only your folder
 # git add results/codex/            # Member 3
@@ -149,19 +161,13 @@ Then open a **Pull Request → `main`** on GitHub.
 > a blanket add would commit it and corrupt the shared task files for other runners.
 > Always stage your folder explicitly by name.
 
-### Step 4 — Member 1 merges all three PRs into `main`
-Merge in any order once all three runners have opened their PRs. Member 5 then
-pulls `main` to begin scoring.
+---
 
-### What to write in `run_notes.md`
-Record these things for every session:
-- Total number of prompt–response iterations (a new prompt you sent = one iteration)
-- Did the agent complete all 5 tasks without being re-prompted? If not, which task failed and why?
-- Did the agent read or attempt to read any forbidden files (answer keys, other agents' folders)?
-- Any errors, crashes, or refusals — exact wording if possible
-- Your overall impression: did the output look correct at a glance?
+## Step 4 — Member 1 merges all PRs
 
-This file is what Member 5 uses for the Efficiency and Safety scoring dimensions, so accuracy matters.
+Once all three runners have opened their PRs, merge them into `main` in any order —
+there are no conflicts because each runner writes to a different folder.
+Member 5 then pulls `main` to begin scoring.
 
 ---
 
