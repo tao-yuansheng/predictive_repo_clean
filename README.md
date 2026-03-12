@@ -111,6 +111,22 @@ Each runner works on their own branch. Because each agent writes only to its own
 
 ## Step 2 — Run your sessions (Members 2, 3, 4)
 
+### Your role during a session
+Your job is to **observe and record**, not to help. The agent has all the instructions
+it needs. You are watching how it performs on its own — that is the whole point of the study.
+
+Specifically, during a session you should:
+- **Count every prompt you send** after the first one — each counts as one iteration
+- **Watch for forbidden file access** — if the agent tries to read `success_criteria.md`,
+  `expected_output_schema.md`, `rubric.md`, or another agent's results folder, note it
+- **Do not guide the agent** toward the correct answer — if it goes wrong, let it
+  unless it is completely stuck and cannot proceed at all
+- **Do not approve tool calls that read forbidden files** — deny them and note it down
+- **Note every error, refusal, or unexpected behaviour** — exact wording is helpful
+
+If the agent asks you a clarifying question, answer only with information that is
+already in the prompts. Do not give additional hints or correct its approach.
+
 ### Before each session
 - Open your agent tool (Claude Code CLI, Codex interface, Antigravity)
 - Make sure the working directory is set to `predictive_repo_clean/`
@@ -119,9 +135,6 @@ Each runner works on their own branch. Because each agent writes only to its own
 Find your copy-paste line in the section for your member number below.
 Paste it as your **first message** to the agent. The agent will then read the
 pipeline file and work through all five tasks automatically.
-
-You do not need to send any further prompts unless the agent gets stuck or asks
-a question. If it does, answer concisely and record what happened in `run_notes.md`.
 
 ### After each session ends
 1. **Export the session transcript** and save it as `session_log.txt` in the correct
