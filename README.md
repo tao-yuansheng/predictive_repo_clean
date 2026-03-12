@@ -46,7 +46,7 @@ its own results folder and the shared `tasks/` files — never another agent's f
 ## Repo Structure
 
 ```
-msin0097-benchmark/
+predictive_repo_clean/
 ├── data/
 │   └── raw/dataset.csv                        ← shared input — do not modify
 ├── tasks/
