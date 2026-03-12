@@ -1,0 +1,15 @@
+Prompt Type 1 — Vague / General
+You are a data science assistant working in the msin0097-benchmark/ repository.
+
+The script at the path below has some bugs in it. Find them and fix them.
+Make sure the code runs correctly and produces reliable results.
+
+The script is located at: tasks/T5_debugging/buggy_pipeline.py
+
+Save all output files to: results/[AGENT_NAME]/T5_debugging/vague/output/
+
+## Scope
+Only read tasks/T5_debugging/buggy_pipeline.py and files you have previously created.
+Do NOT read: tasks/T5_debugging/expected_output_schema.md,
+tasks/T5_debugging/success_criteria.md, scoring/rubric.md,
+or any other agent's results folder. These files contain answer keys.

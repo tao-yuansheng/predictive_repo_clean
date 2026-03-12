@@ -1,0 +1,57 @@
+Prompt Type 2 — Specific / Detailed
+You are an expert data engineer working in the msin0097-benchmark/ repository.
+Your designated results folder is: results/[AGENT_NAME]/
+
+## Task: Data Ingestion, Missingness Audit, and Wrangling
+
+### 1. Data Ingestion
+- Load the dataset from `data/raw/dataset.csv` using pandas.
+- Immediately replace any "?" strings with `np.nan` across all columns
+  (this dataset uses "?" as a missing-value sentinel — do this before any audit).
+- Print the shape (rows, columns) and display the first 5 rows.
+- Infer and report column dtypes; flag any columns that appear mis-typed
+  (e.g. numeric data stored as object).
+
+### 2. Schema Validation
+- Confirm all expected columns are present: age, workclass, fnlwgt, education,
+  education.num, marital.status, occupation, relationship, race, sex,
+  capital.gain, capital.loss, hours.per.week, native.country, income.
+- Raise a clear error — not a silent pass — if any expected column is missing.
+- Report the cardinality (nunique) of every categorical column.
+
+### 3. Missingness Audit
+- Compute the count AND percentage of missing values per column.
+- Visualise missingness with a heatmap (missingno or seaborn).
+- Categorise columns: drop if >50% missing; flag 20-50% for manual review;
+  impute <20% using strategy appropriate to dtype:
+    - Numeric     → median imputation
+    - Categorical → mode imputation
+  Document every decision with a comment in the code.
+
+### 4. Data Cleaning
+- Remove exact duplicate rows and report how many were removed.
+- Detect and cap outliers in numeric columns using IQR (1.5× rule);
+  log the count of capped values per column.
+- Standardise string columns: strip leading/trailing whitespace.
+  Do NOT lowercase — preserve original casing (the target column uses ">50K"/"<=50K"
+  and downstream tasks depend on exact string matching).
+
+### 5. Output & Reproducibility
+- Save the cleaned dataset to results/[AGENT_NAME]/T1_ingestion/specific/output/dataset_clean.csv.
+- Save the missingness heatmap to results/[AGENT_NAME]/T1_ingestion/specific/output/missingness_heatmap.png.
+- Print a final cleaning report summarising: rows before/after, columns dropped,
+  columns imputed, outliers capped.
+- Set random seeds where applicable (numpy.random.seed(42)).
+- Pin all library versions used and add them to a requirements comment at the top.
+
+### Success Criteria
+- No silent failures — every check must print a result.
+- Code must run end-to-end without errors on a fresh kernel.
+- Cleaning decisions must be documented and reproducible.
+- Cleaned dataset saved to results/[AGENT_NAME]/T1_ingestion/specific/output/dataset_clean.csv.
+- Missingness heatmap saved to results/[AGENT_NAME]/T1_ingestion/specific/output/missingness_heatmap.png.
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

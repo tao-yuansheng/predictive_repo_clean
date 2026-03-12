@@ -1,0 +1,62 @@
+Prompt Type 2 — Specific / Detailed
+You are a data scientist working in the msin0097-benchmark/ repository.
+Your designated results folder is: results/[AGENT_NAME]/
+
+## Dataset
+- Target variable: `income` (binary: <=50K or >50K — encode as 0/1)
+- Preferred input: results/[AGENT_NAME]/T1_ingestion/specific/output/dataset_clean.csv
+- Fallback input: data/raw/dataset.csv (apply the same cleaning: replace "?" with NaN,
+  drop duplicates, median-impute numeric columns, mode-impute categorical columns)
+- Numeric columns : age, fnlwgt, education.num, capital.gain, capital.loss, hours.per.week
+- Categorical columns: workclass, education, marital.status, occupation,
+                       relationship, race, sex, native.country
+
+## Task: Baseline Model Training and Evaluation
+
+### 1. Load Data
+- Load the cleaned dataset using the path priority above.
+- Print shape and confirm the target column `income` is present and binary.
+- Apply an 80/20 train/test split with random_state=42.
+- Do NOT use any feature that encodes or is derived from the target (no leakage).
+
+### 2. Preprocessing
+- Encode all categorical columns using LabelEncoder (one encoder per column).
+- Scale numeric features using StandardScaler fitted on the training set only.
+  Apply transform (not fit_transform) to the test set.
+
+### 3. Baseline Model
+- Train a Logistic Regression model (max_iter=1000, random_state=42).
+- This is intentionally a baseline — do not tune hyperparameters or add complexity.
+- Set all random seeds to 42.
+
+### 4. Evaluation Harness
+- Evaluate on the test set and report: Accuracy, Precision, Recall, F1-score, ROC-AUC.
+- Print a full classification report (sklearn.metrics.classification_report).
+- Plot and save a confusion matrix as confusion_matrix.png.
+- Save all scalar metrics to task3_results.json in this format:
+  { "accuracy": 0.xx, "precision": 0.xx, "recall": 0.xx, "f1": 0.xx, "roc_auc": 0.xx }
+
+### 5. Output & Reproducibility
+- Save the trained model as baseline_model.pkl (using joblib).
+- Record library versions (sklearn, pandas, numpy) in requirements_task3.txt.
+- Save the full runnable script as task3_baseline.py.
+- Another person must be able to rerun task3_baseline.py and get identical results.
+
+### Output Files — all saved to results/[AGENT_NAME]/T3_model/specific/output/
+- task3_baseline.py
+- baseline_model.pkl
+- task3_results.json
+- confusion_matrix.png
+- requirements_task3.txt
+
+### Success Criteria
+- Script runs end-to-end with zero errors on a fresh kernel.
+- ROC-AUC is reported and above 0.5.
+- StandardScaler is fitted on training data only — not re-fitted on test data.
+- Confusion matrix is saved and readable.
+- All 5 output files present in results/[AGENT_NAME]/T3_model/specific/output/.
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

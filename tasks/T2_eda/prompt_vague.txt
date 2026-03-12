@@ -1,0 +1,15 @@
+Prompt Type 1 — Vague / General
+You are a data science assistant working in the msin0097-benchmark/ repository.
+
+Explore the dataset and generate some insights.
+Create a few plots to visualise the data.
+Summarise what you find.
+
+The dataset is located at: data/raw/dataset.csv
+
+Save all output files to: results/[AGENT_NAME]/T2_eda/vague/output/
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

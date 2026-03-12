@@ -1,0 +1,15 @@
+Prompt Type 1 — Vague / General
+You are a data science assistant working in the msin0097-benchmark/ repository.
+
+Train a baseline machine learning model on the cleaned dataset
+and evaluate its performance. Show me the results.
+
+The dataset is located at: data/raw/dataset.csv
+If a cleaned version exists at results/[AGENT_NAME]/T1_ingestion/vague/output/dataset_clean.csv, use that instead.
+
+Save all output files to: results/[AGENT_NAME]/T3_model/vague/output/
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

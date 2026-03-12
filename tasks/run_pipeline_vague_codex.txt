@@ -1,0 +1,79 @@
+# Agent Pipeline — Vague Prompts — codex
+# Hand this file directly to the agent. No edits needed.
+
+You are the codex agent in a benchmarking study.
+Your results folder is: results/codex/
+Do not write to any other agent's results folder.
+Do not modify files in tasks/ or data/raw/.
+
+## File Access Rules — READ CAREFULLY
+
+You may ONLY read the following files:
+  tasks/project_context.md
+  tasks/T*/prompt_vague.txt  (one per task, as instructed below)
+  tasks/T5_debugging/buggy_pipeline.py  (T5 only)
+  data/raw/dataset.csv
+  results/codex/  (your own results only)
+
+You must NOT read:
+  tasks/*/success_criteria.md        — scoring rubric, not for agents
+  tasks/*/expected_output_schema.md  — answer keys, not for agents
+  scoring/rubric.md                  — scoring sheet, not for agents
+  results/codex/                     — another agent's folder
+  results/antigravity/               — another agent's folder
+  results/claude_code/               — another agent's folder
+  Any file not listed above
+
+Violating these rules invalidates your run.
+
+---
+
+## Step 0 — Read Project Context
+
+Before starting any task, read the following file in full:
+  tasks/project_context.md
+
+---
+
+## Step 1 — T1: Data Ingestion
+
+Read and complete: tasks/T1_ingestion/prompt_vague.txt
+Save all outputs to: results/codex/T1_ingestion/vague/output/
+Confirm output files are saved before proceeding.
+
+---
+
+## Step 2 — T2: EDA
+
+Read and complete: tasks/T2_eda/prompt_vague.txt
+Save all outputs to: results/codex/T2_eda/vague/output/
+Confirm output files are saved before proceeding.
+
+---
+
+## Step 3 — T3: Baseline Model
+
+Read and complete: tasks/T3_model/prompt_vague.txt
+Save all outputs to: results/codex/T3_model/vague/output/
+Confirm output files are saved before proceeding.
+
+---
+
+## Step 4 — T4: Leakage Detection
+
+Read and complete: tasks/T4_leakage/prompt_vague.txt
+Save all outputs to: results/codex/T4_leakage/vague/output/
+Confirm output files are saved before proceeding.
+
+---
+
+## Step 5 — T5: Debugging
+
+Read and complete: tasks/T5_debugging/prompt_vague.txt
+The broken script is at: tasks/T5_debugging/buggy_pipeline.py
+Save all outputs to: results/codex/T5_debugging/vague/output/
+
+
+---
+
+When all 5 tasks are complete, confirm every output folder contains files.

@@ -1,0 +1,77 @@
+Prompt Type 2 — Specific / Detailed
+You are an expert data scientist working in the msin0097-benchmark/ repository.
+Your designated results folder is: results/[AGENT_NAME]/
+
+## Dataset
+- File: data/raw/dataset.csv
+- This is the UCI Adult Income dataset (~32,000 rows, 15 columns).
+- Target variable: `income` (binary: <=50K or >50K)
+- Missing values are encoded as the string "?" — treat these as NaN throughout.
+- Numeric columns : age, fnlwgt, education.num, capital.gain, capital.loss, hours.per.week
+- Categorical columns: workclass, education, marital.status, occupation,
+                       relationship, race, sex, native.country
+
+## Task: Comprehensive Exploratory Data Analysis
+
+### 1. Data Overview
+- Load the dataset; print shape, dtypes, and missing value counts/percentages per column.
+- Replace all "?" values with NaN before any analysis.
+- Report which columns contain missing values and how many.
+
+### 2. Numeric Column Analysis
+For each numeric column (age, fnlwgt, education.num, capital.gain, capital.loss, hours.per.week):
+- Compute: mean, median, std, skewness, kurtosis.
+- Detect outliers using IQR (1.5× rule); report count of outliers per column.
+- Plot distribution with skewness annotation. Note: capital.gain and capital.loss
+  are heavily zero-inflated — comment on this explicitly.
+
+### 3. Categorical Column Analysis
+For each categorical column:
+- Print value counts and cardinality (nunique).
+- Flag any column where a single category dominates (>70% of rows).
+- Plot a bar chart of the top 10 categories.
+
+### 4. Target Variable
+- Plot the distribution of `income`.
+- Compute and print the class imbalance ratio (<=50K : >50K).
+- State whether the imbalance is likely to affect model performance.
+
+### 5. Correlation & Feature Relevance
+- Encode the target as binary (1 = >50K, 0 = <=50K) for correlation purposes.
+- Plot a correlation heatmap of all numeric features.
+- Report the top 5 features most correlated with `income`.
+
+### 6. Bivariate Analysis
+For the top 3 features correlated with `income`:
+- Numeric: plot a boxplot split by income class.
+- Categorical: plot a stacked bar chart of income distribution within each category.
+
+### 7. Leakage Flags
+- Review all columns and flag any that could cause data leakage if used in a model
+  (e.g. columns that are derived from or directly encode the target).
+- Justify each flag with one sentence.
+
+### 8. Summary
+- Write a plain-English summary (as code comments or a printed block) covering:
+  - Key patterns and distributions observed
+  - Columns that need special handling before modelling
+  - Recommended preprocessing steps (imputation, encoding, scaling, class balancing)
+
+### Output & Reproducibility
+- Save all plots to results/[AGENT_NAME]/T2_eda/specific/output/ with descriptive filenames
+  (e.g. dist_age.png, barplot_workclass.png, correlation_heatmap.png).
+- Write clean, commented Python code using pandas, matplotlib, seaborn.
+- Code must run end-to-end without errors on a fresh kernel.
+- Do not skip any step.
+
+### Success Criteria
+- All 7 analysis steps completed with printed output or saved plots.
+- Class imbalance ratio reported.
+- Leakage flags provided with justification.
+- All plots saved to results/[AGENT_NAME]/T2_eda/specific/output/.
+- Written summary present at the end of the script.
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

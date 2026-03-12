@@ -1,0 +1,15 @@
+Prompt Type 1 — Vague / General
+You are a data science coding assistant working in the msin0097-benchmark/ repository.
+
+Load the dataset and clean it up.
+Check for any missing values and handle them.
+Make sure the data is ready to use for modelling.
+
+The dataset is located at: data/raw/dataset.csv
+
+Save all output files to: results/[AGENT_NAME]/T1_ingestion/vague/output/
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

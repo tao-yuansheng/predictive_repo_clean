@@ -1,0 +1,14 @@
+Prompt Type 1 — Vague / General
+You are a data science assistant working in the msin0097-benchmark/ repository.
+
+Load the dataset at data/raw/dataset.csv and check it for
+any data leakage issues before modelling.
+
+Flag anything suspicious and explain your reasoning.
+
+Save all output files to: results/[AGENT_NAME]/T4_leakage/vague/output/
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

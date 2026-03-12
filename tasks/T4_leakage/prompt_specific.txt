@@ -1,0 +1,74 @@
+Prompt Type 2 — Specific / Detailed
+You are an expert data scientist working in the msin0097-benchmark/ repository.
+Your designated results folder is: results/[AGENT_NAME]/
+
+## Dataset
+- File: data/raw/dataset.csv
+- This is the UCI Adult Income dataset (~32,000 rows, 15 columns).
+- Target variable: `income` (binary: <=50K or >50K)
+- Missing values are encoded as "?" — treat as NaN throughout.
+- Numeric columns : age, fnlwgt, education.num, capital.gain, capital.loss, hours.per.week
+- Categorical columns: workclass, education, marital.status, occupation,
+                       relationship, race, sex, native.country
+
+## Task: Detecting and Fixing Data Leakage
+
+### 1. Identify the Target Variable
+- State clearly which column is the target variable and why.
+- Print its data type, unique values, and class distribution.
+
+### 2. Feature-Level Leakage Audit
+For every feature column, work through these checks in order:
+
+- Temporal check: could this feature only be known after the target
+  outcome is already determined? If yes, flag as leakage.
+
+- Correlation check: compute the correlation or mutual information
+  between each feature and the target. Flag any feature with
+  correlation > 0.95 as suspicious and investigate further.
+
+- Semantic check: does the column name or value range suggest it
+  is derived from or directly encodes the target? If yes, flag
+  as leakage regardless of correlation score.
+
+- Print a summary table with columns:
+    Feature | Correlation with Target | Leakage Risk | Reason
+
+### 3. Confirm and Remove Leaking Features
+- For each flagged feature, print a structured explanation:
+    Column    : column name
+    Risk type : temporal / derived / direct encoding / other
+    Evidence  : what in the data confirms the leakage
+    Action    : drop / investigate further / keep with justification
+
+- Remove all confirmed leaking columns from the dataset.
+- Print the shape of the dataset before and after removal.
+
+### 4. Verification
+- Re-run the correlation check on the cleaned dataset and confirm
+  no remaining feature has correlation > 0.95 with the target.
+- Train a simple logistic regression (random_state=42) on the original
+  dataset and again on the cleaned dataset using an 80/20 split.
+- Print accuracy for both and comment on the difference.
+  A significant accuracy drop confirms the leakage was real.
+
+### 5. Output & Reproducibility
+- Save the cleaned dataset to results/[AGENT_NAME]/T4_leakage/specific/output/dataset_leakage_removed.csv.
+- Save the leakage audit report to results/[AGENT_NAME]/T4_leakage/specific/output/leakage_report.md
+  containing the full summary table and all flagged column explanations.
+- Set random seed to 42 wherever applicable.
+- Code must run end-to-end without errors on a fresh kernel.
+- Pin all library versions in a comment at the top of the file.
+
+### Success Criteria
+- Target variable correctly identified and stated.
+- All 14 feature columns audited using temporal, correlation, and semantic checks.
+- Leaking column(s) correctly identified with evidence provided.
+- Cleaned dataset saved to results/[AGENT_NAME]/T4_leakage/specific/output/dataset_leakage_removed.csv.
+- Leakage report saved to results/[AGENT_NAME]/T4_leakage/specific/output/leakage_report.md.
+- Before/after accuracy comparison printed and commented on.
+
+## Scope
+Only read files you have been explicitly directed to in this prompt.
+Do not read tasks/*/success_criteria.md, tasks/*/expected_output_schema.md,
+scoring/rubric.md, or any other agent's results folder.

@@ -1,0 +1,64 @@
+Prompt Type 2 — Specific / Detailed
+You are an expert data scientist and code reviewer working in the msin0097-benchmark/ repository.
+Your designated results folder is: results/[AGENT_NAME]/
+
+The script below is a machine learning pipeline that contains deliberately planted bugs.
+Your job is to find every bug, explain what is wrong and why it matters,
+then produce a corrected version of the full script.
+
+The script is located at: tasks/T5_debugging/buggy_pipeline.py
+
+## Task: Debugging a Broken Pipeline
+
+### 1. Bug Identification
+- Read the full script before making any changes.
+- Identify every bug present. For each one, produce a report in this format:
+
+    Bug N
+    Location : line number and function/block name
+    Type      : logic bug / data bug / leakage / silent error / other
+    What it does wrong : one sentence explanation
+    Why it matters     : what incorrect result it produces if left unfixed
+
+- Do not fix anything yet. Complete the full identification pass first.
+
+### 2. Classification by Severity
+- After listing all bugs, classify each as:
+    - Critical   : produces wrong results silently, no exception raised
+    - Major      : causes incorrect metrics or model behaviour
+    - Minor      : cosmetic or non-impactful
+- Print the severity classification alongside each bug report.
+
+### 3. Fixing
+- Produce a corrected version of the full script with all bugs fixed.
+- For every fix, add an inline comment directly above the changed line
+  in this format:
+    # FIX [N]: one sentence explaining what changed and why
+
+- Do not restructure or refactor code beyond what is needed to fix the bugs.
+  The corrected script should be as close to the original as possible.
+
+### 4. Verification
+- After fixing, print a before/after comparison for any metric that
+  changed as a result of the fixes (e.g. accuracy before fix vs after fix).
+- If a bug was silent (no exception, just wrong output), explain how you
+  detected it without running the code.
+
+### 5. Output & Reproducibility
+- Save the corrected script to results/[AGENT_NAME]/T5_debugging/specific/output/fixed_pipeline.py.
+- Save the bug report to results/[AGENT_NAME]/T5_debugging/specific/output/bug_report.md.
+- The corrected script must run end-to-end without errors on a fresh kernel.
+- Set random seed to 42 wherever applicable.
+
+### Success Criteria
+- All bugs identified with correct location and type.
+- Every fix annotated with an inline FIX comment.
+- Bug report saved to results/[AGENT_NAME]/T5_debugging/specific/output/bug_report.md.
+- Corrected script saved to results/[AGENT_NAME]/T5_debugging/specific/output/fixed_pipeline.py and runs clean.
+- Before/after metric comparison printed for any numerically impactful fix.
+
+## Scope
+Only read tasks/T5_debugging/buggy_pipeline.py and files you have previously created.
+Do NOT read: tasks/T5_debugging/expected_output_schema.md,
+tasks/T5_debugging/success_criteria.md, scoring/rubric.md,
+or any other agent's results folder. These files contain answer keys.
