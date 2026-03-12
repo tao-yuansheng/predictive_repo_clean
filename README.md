@@ -107,25 +107,6 @@ The benchmark files are inside it (README.md, tasks/, data/, results/, scoring/)
 Each runner works on their own branch. Because each agent writes only to its own
 `results/{agent}/` folder, there are no merge conflicts when combining results.
 
-### Step 3 — After both sessions are complete, commit your results
-```bash
-git add results/claude_code/        # Member 2 — stage only your folder
-# git add results/codex/            # Member 3
-# git add results/antigravity/      # Member 4
-git commit -m "Claude Code runs complete — vague and specific"
-git push origin run/claude-code
-```
-Then open a **Pull Request → `main`** on GitHub.
-
-> **Warning: never use `git add .` or `git add -A`.**
-> If the agent accidentally wrote a file outside your `results/{agent}/` folder,
-> a blanket add would commit it and corrupt the shared task files for other runners.
-> Always stage your folder explicitly by name.
-
-### Step 4 — Member 1 merges all three PRs into `main`
-Merge in any order once all three runners have opened their PRs. Member 5 then
-pulls `main` to begin scoring.
-
 ---
 
 ## How to Run a Session (Members 2, 3, 4)
@@ -133,7 +114,7 @@ pulls `main` to begin scoring.
 ### Before you start
 - Complete the Git setup above (clone, create branch)
 - Open your agent tool (Claude Code CLI, Codex interface, Antigravity)
-- Make sure the working directory is set to `msin0097-benchmark/`
+- Make sure the working directory is set to `predictive_repo_clean/`
 
 ### Starting the session — copy and paste one line
 Find your copy-paste line in the section for your member number below.
@@ -152,6 +133,25 @@ a question. If it does, answer concisely and record what happened in `run_notes.
 2. **Copy any generated code** to `generated_code.py` if the agent did not save it directly
 3. **Fill in `run_notes.md`** — see guidance below
 4. **Leave `scorecard.md` blank** — Member 5 fills that in
+
+### Step 3 — Once both sessions are complete, commit and push your results
+```bash
+git add results/claude_code/        # Member 2 — stage only your folder
+# git add results/codex/            # Member 3
+# git add results/antigravity/      # Member 4
+git commit -m "Claude Code runs complete — vague and specific"
+git push origin run/claude-code
+```
+Then open a **Pull Request → `main`** on GitHub.
+
+> **Warning: never use `git add .` or `git add -A`.**
+> If the agent accidentally wrote a file outside your `results/{agent}/` folder,
+> a blanket add would commit it and corrupt the shared task files for other runners.
+> Always stage your folder explicitly by name.
+
+### Step 4 — Member 1 merges all three PRs into `main`
+Merge in any order once all three runners have opened their PRs. Member 5 then
+pulls `main` to begin scoring.
 
 ### What to write in `run_notes.md`
 Record these things for every session:
