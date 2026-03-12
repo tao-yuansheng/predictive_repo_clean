@@ -85,19 +85,29 @@ results/{agent}/{task}/{vague|specific}/
 
 ## Git Workflow — do this before starting any session
 
-### Step 1 — Clone the repo and create your branch
+### Step 1 — One-time git setup (skip if you have done this before)
+If this is your first time using git on this machine, run these two lines first
+(replace with your own name and university email):
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@ucl.ac.uk"
+```
+
+### Step 2 — Clone the repo and create your branch
 ```bash
 git clone https://github.com/tao-yuansheng/predictive_repo_clean.git
-cd msin0097-benchmark
+cd predictive_repo_clean
 git checkout -b run/claude-code     # Member 2
 # git checkout -b run/codex         # Member 3
 # git checkout -b run/antigravity   # Member 4
 ```
+Note: the cloned folder is called `predictive_repo_clean` — that is the repo root.
+The benchmark files are inside it (README.md, tasks/, data/, results/, scoring/).
 
 Each runner works on their own branch. Because each agent writes only to its own
 `results/{agent}/` folder, there are no merge conflicts when combining results.
 
-### Step 2 — After both sessions are complete, commit your results
+### Step 3 — After both sessions are complete, commit your results
 ```bash
 git add results/claude_code/        # Member 2 — stage only your folder
 # git add results/codex/            # Member 3
@@ -112,7 +122,7 @@ Then open a **Pull Request → `main`** on GitHub.
 > a blanket add would commit it and corrupt the shared task files for other runners.
 > Always stage your folder explicitly by name.
 
-### Step 3 — Member 1 merges all three PRs into `main`
+### Step 4 — Member 1 merges all three PRs into `main`
 Merge in any order once all three runners have opened their PRs. Member 5 then
 pulls `main` to begin scoring.
 
