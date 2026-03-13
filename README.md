@@ -505,3 +505,49 @@ you differ by more than 1 point, and agree on a final score.
 - **T5 Bug Review in `run_notes.md` is mandatory** — Member 5 relies on it for scoring
 - Runners must not read `success_criteria.md`, `expected_output_schema.md`, or `rubric.md`
 - If the agent attempts to read a forbidden file, deny the tool call and record it
+
+---
+
+## Quick Reference — First Message per Runner
+
+### Member 2 — Claude Code
+
+Vague session:
+```
+Read tasks/project_context.md then read and follow tasks/run_pipeline_vague_claude_code.txt
+```
+Specific session:
+```
+Read tasks/project_context.md then read and follow tasks/run_pipeline_specific_claude_code.txt
+```
+
+### Member 3 — Codex
+
+Vague session:
+```
+Read tasks/project_context.md then read and follow tasks/run_pipeline_vague_codex.txt
+```
+Specific session:
+```
+Read tasks/project_context.md then read and follow tasks/run_pipeline_specific_codex.txt
+```
+
+### Member 4 — Antigravity
+
+Vague session:
+```
+Read tasks/project_context.md then read and follow tasks/run_pipeline_vague_antigravity.txt
+```
+Specific session:
+```
+Read tasks/project_context.md then read and follow tasks/run_pipeline_specific_antigravity.txt
+```
+
+### Member 5 — Scoring
+
+Wait for Member 1 to merge all PRs into `main`, then:
+```bash
+git checkout main
+git pull origin main
+```
+Score all 30 runs following Step 5 above.
