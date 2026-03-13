@@ -39,6 +39,7 @@ Before starting any task, read the following file in full:
 
 Read and complete: tasks/T1_ingestion/prompt_specific.txt
 Save all outputs to: results/claude_code/T1_ingestion/specific/output/
+Also save the Python code you wrote for this task to: results/claude_code/T1_ingestion/specific/generated_code.py
 Confirm these files exist before proceeding:
 - results/claude_code/T1_ingestion/specific/output/dataset_clean.csv
 - results/claude_code/T1_ingestion/specific/output/missingness_heatmap.png
@@ -49,6 +50,7 @@ Confirm these files exist before proceeding:
 
 Read and complete: tasks/T2_eda/prompt_specific.txt
 Save all outputs to: results/claude_code/T2_eda/specific/output/
+Also save the Python code you wrote for this task to: results/claude_code/T2_eda/specific/generated_code.py
 Confirm these files exist before proceeding:
 - results/claude_code/T2_eda/specific/output/income_distribution.png
 - results/claude_code/T2_eda/specific/output/correlation_heatmap.png
@@ -59,6 +61,7 @@ Confirm these files exist before proceeding:
 
 Read and complete: tasks/T3_model/prompt_specific.txt
 Save all outputs to: results/claude_code/T3_model/specific/output/
+Also save the Python code you wrote for this task to: results/claude_code/T3_model/specific/generated_code.py
 Confirm these files exist before proceeding:
 - results/claude_code/T3_model/specific/output/task3_results.json
 - results/claude_code/T3_model/specific/output/baseline_model.pkl
@@ -72,6 +75,7 @@ Confirm these files exist before proceeding:
 
 Read and complete: tasks/T4_leakage/prompt_specific.txt
 Save all outputs to: results/claude_code/T4_leakage/specific/output/
+Also save the Python code you wrote for this task to: results/claude_code/T4_leakage/specific/generated_code.py
 Confirm these files exist before proceeding:
 - results/claude_code/T4_leakage/specific/output/dataset_leakage_removed.csv
 - results/claude_code/T4_leakage/specific/output/leakage_report.md
@@ -83,6 +87,7 @@ Confirm these files exist before proceeding:
 Read and complete: tasks/T5_debugging/prompt_specific.txt
 The broken script is at: tasks/T5_debugging/buggy_pipeline.py
 Save all outputs to: results/claude_code/T5_debugging/specific/output/
+Also save the Python code you wrote for this task to: results/claude_code/T5_debugging/specific/generated_code.py
 Confirm these files exist before ending:
 - results/claude_code/T5_debugging/specific/output/fixed_pipeline.py
 - results/claude_code/T5_debugging/specific/output/bug_report.md

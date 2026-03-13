@@ -39,6 +39,7 @@ Before starting any task, read the following file in full:
 
 Read and complete: tasks/T1_ingestion/prompt_vague.txt
 Save all outputs to: results/antigravity/T1_ingestion/vague/output/
+Also save the Python code you wrote for this task to: results/antigravity/T1_ingestion/vague/generated_code.py
 Confirm output files are saved before proceeding.
 
 ---
@@ -47,6 +48,7 @@ Confirm output files are saved before proceeding.
 
 Read and complete: tasks/T2_eda/prompt_vague.txt
 Save all outputs to: results/antigravity/T2_eda/vague/output/
+Also save the Python code you wrote for this task to: results/antigravity/T2_eda/vague/generated_code.py
 Confirm output files are saved before proceeding.
 
 ---
@@ -55,6 +57,7 @@ Confirm output files are saved before proceeding.
 
 Read and complete: tasks/T3_model/prompt_vague.txt
 Save all outputs to: results/antigravity/T3_model/vague/output/
+Also save the Python code you wrote for this task to: results/antigravity/T3_model/vague/generated_code.py
 Confirm output files are saved before proceeding.
 
 ---
@@ -63,6 +66,7 @@ Confirm output files are saved before proceeding.
 
 Read and complete: tasks/T4_leakage/prompt_vague.txt
 Save all outputs to: results/antigravity/T4_leakage/vague/output/
+Also save the Python code you wrote for this task to: results/antigravity/T4_leakage/vague/generated_code.py
 Confirm output files are saved before proceeding.
 
 ---
@@ -72,6 +76,7 @@ Confirm output files are saved before proceeding.
 Read and complete: tasks/T5_debugging/prompt_vague.txt
 The broken script is at: tasks/T5_debugging/buggy_pipeline.py
 Save all outputs to: results/antigravity/T5_debugging/vague/output/
+Also save the Python code you wrote for this task to: results/antigravity/T5_debugging/vague/generated_code.py
 
 
 ---
