@@ -1,20 +1,4 @@
-"""
-T3 — Baseline Model Training and Evaluation
-Agent: claude_code
-Prompt type: specific
-
-Generates task3_baseline.py (the runnable script) and all required output files.
-"""
-
-import os
-import subprocess
-import sys
-
-OUT_DIR = "results/claude_code/T3_model/specific/output"
-os.makedirs(OUT_DIR, exist_ok=True)
-
-# Write the self-contained task3_baseline.py to the output folder
-BASELINE_CODE = '''#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 task3_baseline.py — Baseline Logistic Regression on UCI Adult Income Dataset
 Agent: claude_code | Prompt type: specific
@@ -79,7 +63,7 @@ assert "income" in df.columns, "Target column 'income' not found!"
 # Encode target
 df["income"] = df["income"].str.strip().map({"<=50K": 0, ">50K": 1})
 assert df["income"].nunique() == 2, "Target is not binary!"
-print(f"Target distribution:\\n{df['income'].value_counts()}")
+print(f"Target distribution:\n{df['income'].value_counts()}")
 
 # ── 2. Preprocessing ──────────────────────────────────────────────────────────
 # Drop fnlwgt (census weight) and education (redundant with education.num)
@@ -120,12 +104,12 @@ recall    = round(recall_score(y_test, y_pred, zero_division=0), 4)
 f1        = round(f1_score(y_test, y_pred, zero_division=0), 4)
 roc_auc   = round(roc_auc_score(y_test, y_prob), 4)
 
-print(f"\\nAccuracy : {acc}")
+print(f"\nAccuracy : {acc}")
 print(f"Precision: {precision}")
 print(f"Recall   : {recall}")
 print(f"F1-score : {f1}")
 print(f"ROC-AUC  : {roc_auc}")
-print(f"\\nClassification Report:\\n{classification_report(y_test, y_pred, target_names=['<=50K', '>50K'])}")
+print(f"\nClassification Report:\n{classification_report(y_test, y_pred, target_names=['<=50K', '>50K'])}")
 
 # Confusion matrix plot
 cm = confusion_matrix(y_test, y_pred)
@@ -157,35 +141,3 @@ joblib.dump(model, os.path.join(OUT_DIR, "baseline_model.pkl"))
 print("Saved: baseline_model.pkl")
 
 print("task3_baseline.py complete.")
-'''
-
-# Write task3_baseline.py to the output folder
-baseline_path = os.path.join(OUT_DIR, "task3_baseline.py")
-with open(baseline_path, "w") as f:
-    f.write(BASELINE_CODE)
-print(f"Saved: {baseline_path}")
-
-# Write requirements_task3.txt
-req_path = os.path.join(OUT_DIR, "requirements_task3.txt")
-with open(req_path, "w") as f:
-    import sklearn, pandas, numpy, joblib, matplotlib
-    f.write("# Requirements for task3_baseline.py\n")
-    f.write(f"scikit-learn=={sklearn.__version__}\n")
-    f.write(f"pandas=={pandas.__version__}\n")
-    f.write(f"numpy=={numpy.__version__}\n")
-    f.write(f"joblib=={joblib.__version__}\n")
-    f.write(f"matplotlib=={matplotlib.__version__}\n")
-print(f"Saved: {req_path}")
-
-# Run the baseline script
-print("\nRunning task3_baseline.py ...")
-result = subprocess.run(
-    [sys.executable, baseline_path],
-    capture_output=True, text=True
-)
-print(result.stdout)
-if result.returncode != 0:
-    print("STDERR:", result.stderr)
-    raise RuntimeError("task3_baseline.py failed!")
-
-print("T3 specific complete.")
