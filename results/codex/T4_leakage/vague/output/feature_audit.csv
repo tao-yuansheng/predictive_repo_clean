@@ -1,0 +1,16 @@
+feature,dtype,missing_count,unique_values,equals_target_exactly,correlation_with_income_binary,note
+age,int64,0,73,False,0.234,
+workclass,object,1836,9,False,,
+fnlwgt,int64,0,21648,False,-0.0095,"Sampling weight; not leakage, but generally not a desirable predictor."
+education,object,0,16,False,,Deterministic duplicate of education.num.
+education.num,int64,0,16,False,0.3352,Deterministic duplicate of education.
+marital.status,object,0,7,False,,
+occupation,object,1843,15,False,,
+relationship,object,0,6,False,,
+race,object,0,5,False,,
+sex,object,0,2,False,,
+capital.gain,int64,0,119,False,0.2233,Very target-proximal financial variable; strong signal but not a direct target copy.
+capital.loss,int64,0,92,False,0.1505,Very target-proximal financial variable; strong signal but not a direct target copy.
+hours.per.week,int64,0,94,False,0.2297,
+native.country,object,583,42,False,,
+income,object,0,2,True,,

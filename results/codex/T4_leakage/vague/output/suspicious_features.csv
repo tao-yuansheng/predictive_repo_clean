@@ -1,0 +1,5 @@
+feature_or_pair,risk_level,issue_type,evidence,recommendation
+education + education.num,medium,redundant encoding,Each education label maps to exactly one education.num value and vice versa.,Keep one of the two features to avoid duplicate information.
+capital.gain,medium,target-proximal signal,Positive capital gain appears in 21.39% of >50K rows versus 4.19% of <=50K rows.,"Use with care. It is not direct leakage in this dataset, but it may be too close to the target for some real-world prediction settings."
+capital.loss,low,target-proximal signal,Positive capital loss appears in 9.86% of >50K rows versus 3.02% of <=50K rows.,Treat similarly to capital.gain and validate whether it is available at prediction time.
+fnlwgt,low,sampling artifact,Census sampling weight is not a demographic trait and may not generalize operationally.,Exclude from baseline models unless survey weighting is part of the design.

@@ -1,0 +1,17 @@
+column,dtype,missing_before_cleaning,missing_after_cleaning,unique_values
+age,int64,0,0,73
+workclass,object,1836,0,9
+fnlwgt,int64,0,0,21648
+education,object,0,0,16
+education.num,int64,0,0,16
+marital.status,object,0,0,7
+occupation,object,1843,0,15
+relationship,object,0,0,6
+race,object,0,0,5
+sex,object,0,0,2
+capital.gain,int64,0,0,119
+capital.loss,int64,0,0,92
+hours.per.week,int64,0,0,94
+native.country,object,583,0,42
+income,object,0,0,2
+income_binary,int64,0,0,2

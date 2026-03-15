@@ -1,0 +1,16 @@
+{
+  "direct_target_copies": [
+    "income"
+  ],
+  "redundant_feature_pair": [
+    "education",
+    "education.num"
+  ],
+  "target_proximal_features": [
+    "capital.gain",
+    "capital.loss"
+  ],
+  "non_leakage_caution_feature": [
+    "fnlwgt"
+  ]
+}
