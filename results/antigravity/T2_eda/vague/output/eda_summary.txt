@@ -1,0 +1,12 @@
+EDA Summary Insights:
+Total records analyzed: 30139
+Income class distribution:
+income
+<=50K    0.750954
+>50K     0.249046
+
+Key Observations:
+1. Income is imbalanced, with roughly 75% earning <=50K.
+2. Higher age seems to correlate with higher income (>50K).
+3. Education level (e.g., Bachelors, Masters) shows a strong link to higher income.
+4. Education and education.num are perfectly correlated (as noted in context).
