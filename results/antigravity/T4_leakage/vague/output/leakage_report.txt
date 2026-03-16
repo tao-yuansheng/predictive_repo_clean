@@ -1,0 +1,10 @@
+Data Leakage Audit Report
+=========================
+
+No obvious high-correlation leakage detected based on simple correlation analysis.
+
+Manual Audit Notes:
+1. 'fnlwgt' (final weight) is a census weight and should be excluded from modelling.
+2. 'capital.gain' and 'capital.loss' are financial outcomes.
+3. 'education.num' and 'education' are redundant.
+4. No features appear to be 'future' information.
