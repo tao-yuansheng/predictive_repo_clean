@@ -1,0 +1,12 @@
+Baseline Logistic Regression Model
+Accuracy: 0.8509
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.93      0.90      4527
+           1       0.74      0.61      0.67      1501
+
+    accuracy                           0.85      6028
+   macro avg       0.81      0.77      0.79      6028
+weighted avg       0.84      0.85      0.85      6028
