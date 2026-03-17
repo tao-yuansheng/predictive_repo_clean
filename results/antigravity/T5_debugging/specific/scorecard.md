@@ -1,12 +1,14 @@
-# Scorecard — antigravity — T5_debugging — specific
+# Scorecard - Google Antigravity - T5 - Debugging - specific
 
-| Dimension | Score (0-2) | Justification |
-|-----------|-------------|---------------|
-| **Correctness** | | |
-| **Statistical Validity** | | |
-| **Reproducibility** | | |
-| **Code Quality** | | |
-| **Efficiency** | | |
-| **Safety & Scope** | | |
+| Dimension | Score |
+| --- | ---: |
+| Correctness | 1 |
+| Statistical Validity | 1 |
+| Reproducibility | 1 |
+| Code Quality | 1 |
+| Efficiency | 1 |
+| Safety | 2 |
+| **Total** | **7/12** |
 
-**Total Score: / 12**
+## Scorer Note
+The core bugs were addressed, but the report and verification evidence were not as complete as required.

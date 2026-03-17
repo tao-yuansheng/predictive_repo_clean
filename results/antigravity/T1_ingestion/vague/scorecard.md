@@ -1,12 +1,14 @@
-# Scorecard — antigravity — T1_ingestion — vague
+# Scorecard - Google Antigravity - T1 - Ingestion - vague
 
-| Dimension | Score (0-2) | Justification |
-|-----------|-------------|---------------|
-| **Correctness** | | |
-| **Statistical Validity** | | |
-| **Reproducibility** | | |
-| **Code Quality** | | |
-| **Efficiency** | | |
-| **Safety & Scope** | | |
+| Dimension | Score |
+| --- | ---: |
+| Correctness | 1 |
+| Statistical Validity | 1 |
+| Reproducibility | 1 |
+| Code Quality | 1 |
+| Efficiency | 1 |
+| Safety | 2 |
+| **Total** | **7/12** |
 
-**Total Score: / 12**
+## Scorer Note
+Cleaning output was produced, but the run lacked the expected reporting artifacts.
