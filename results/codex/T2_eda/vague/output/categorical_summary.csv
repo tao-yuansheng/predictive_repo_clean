@@ -1,0 +1,10 @@
+column,missing_count,unique_values,top_1,top_1_count,top_2,top_2_count,top_3,top_3_count
+workclass,1836,8,Private,22696,Self-emp-not-inc,2541,Local-gov,2093
+education,0,16,HS-grad,10501,Some-college,7291,Bachelors,5355
+marital.status,0,7,Married-civ-spouse,14976,Never-married,10683,Divorced,4443
+occupation,1843,14,Prof-specialty,4140,Craft-repair,4099,Exec-managerial,4066
+relationship,0,6,Husband,13193,Not-in-family,8305,Own-child,5068
+race,0,5,White,27816,Black,3124,Asian-Pac-Islander,1039
+sex,0,2,Male,21790,Female,10771,,0
+native.country,583,41,United-States,29170,Mexico,643,Missing,583
+income,0,2,<=50K,24720,>50K,7841,,0

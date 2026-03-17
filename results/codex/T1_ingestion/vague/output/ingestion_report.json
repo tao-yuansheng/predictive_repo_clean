@@ -1,0 +1,13 @@
+{
+  "rows": 32561,
+  "columns": 16,
+  "original_missing_total": 4262,
+  "remaining_missing_total": 0,
+  "categorical_missing_strategy": "Filled categorical missing values with 'Missing'.",
+  "target_encoding": "Added income_binary where >50K=1 and <=50K=0.",
+  "files_written": [
+    "cleaned_dataset.csv",
+    "missing_values_summary.csv",
+    "column_summary.csv"
+  ]
+}

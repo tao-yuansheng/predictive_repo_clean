@@ -1,0 +1,6 @@
+{
+  "accuracy": 0.8298,
+  "train_rows": 24129,
+  "test_rows": 6033,
+  "rows_after_cleaning": 30162
+}
