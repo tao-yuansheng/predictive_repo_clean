@@ -1,0 +1,59 @@
+{
+  "source_script": "tasks/T5_debugging/buggy_pipeline.py",
+  "bugs_found": [
+    {
+      "bug_id": 1,
+      "location": "line 22",
+      "description": "Missing value cleaning was incomplete: only filtered rows where workclass == '?', but occupation and native.country also contain '?' as missing value markers.",
+      "original_code": "df = df[df['workclass'] != '?']",
+      "fixed_code": "df = df[~(df == '?').any(axis=1)]",
+      "impact": "~2,400 rows with missing occupation/native.country values were not removed, contaminating the dataset with implicit NaNs represented as strings."
+    },
+    {
+      "bug_id": 2,
+      "location": "lines 71-73",
+      "description": "A single LabelEncoder instance was reused across all categorical columns. Each call to fit_transform overwrites the encoder's internal mapping, so the encoder only holds the mapping for the last column encoded.",
+      "original_code": "le = LabelEncoder()\\nfor col in cat_cols:\\n    df[col] = le.fit_transform(df[col])",
+      "fixed_code": "for col in cat_cols:\\n    le = LabelEncoder()\\n    df[col] = le.fit_transform(df[col])",
+      "impact": "The encoding itself is still numeric and functional for training, but the LabelEncoder object would be unusable for inverse transforms. In production pipelines this would cause incorrect decoding of all columns except the last."
+    },
+    {
+      "bug_id": 3,
+      "location": "line 94",
+      "description": "scaler.fit_transform() was called on the test set instead of scaler.transform(). This re-fits the scaler using test set statistics (mean, std), introducing data leakage \u2014 the model sees test distribution information during scaling.",
+      "original_code": "X_test = scaler.fit_transform(X_test)",
+      "fixed_code": "X_test = scaler.transform(X_test)",
+      "impact": "Leaks test set distribution into preprocessing. Leads to optimistic/unreliable evaluation metrics since test data is no longer truly unseen."
+    }
+  ],
+  "model_results_after_fix": {
+    "accuracy": 0.8168,
+    "classification_report": {
+      "<=50K": {
+        "precision": 0.835027365129007,
+        "recall": 0.9424222369291859,
+        "f1-score": 0.8854803606591357,
+        "support": 4533.0
+      },
+      ">50K": {
+        "precision": 0.7153762268266085,
+        "recall": 0.43733333333333335,
+        "f1-score": 0.5428216797683079,
+        "support": 1500.0
+      },
+      "accuracy": 0.8168407094314603,
+      "macro avg": {
+        "precision": 0.7752017959778077,
+        "recall": 0.6898777851312596,
+        "f1-score": 0.7141510202137218,
+        "support": 6033.0
+      },
+      "weighted avg": {
+        "precision": 0.8052782009563569,
+        "recall": 0.8168407094314603,
+        "f1-score": 0.8002842689408792,
+        "support": 6033.0
+      }
+    }
+  }
+}

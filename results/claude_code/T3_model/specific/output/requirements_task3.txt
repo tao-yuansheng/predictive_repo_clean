@@ -1,0 +1,6 @@
+# Requirements for task3_baseline.py
+scikit-learn==1.6.1
+pandas==2.2.3
+numpy==2.1.3
+joblib==1.4.2
+matplotlib==3.10.0

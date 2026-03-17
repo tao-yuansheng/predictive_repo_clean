@@ -1,0 +1,16 @@
+column,missing_count,missing_pct,imputation_strategy
+age,0,0.0,none
+workclass,1836,5.64,mode
+fnlwgt,0,0.0,none
+education,0,0.0,none
+education.num,0,0.0,none
+marital.status,0,0.0,none
+occupation,1843,5.66,mode
+relationship,0,0.0,none
+race,0,0.0,none
+sex,0,0.0,none
+capital.gain,0,0.0,none
+capital.loss,0,0.0,none
+hours.per.week,0,0.0,none
+native.country,583,1.79,mode
+income,0,0.0,none

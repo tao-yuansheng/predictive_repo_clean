@@ -1,0 +1,68 @@
+{
+  "model": "LogisticRegression",
+  "features_used": [
+    "age",
+    "workclass",
+    "education.num",
+    "marital.status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "capital.gain",
+    "capital.loss",
+    "hours.per.week",
+    "native.country"
+  ],
+  "features_dropped": [
+    "fnlwgt",
+    "education"
+  ],
+  "train_size": 26048,
+  "test_size": 6513,
+  "accuracy": 0.7721,
+  "roc_auc": 0.8558,
+  "classification_report": {
+    "<=50K": {
+      "precision": 0.9133030809648913,
+      "recall": 0.7733063700707785,
+      "f1-score": 0.8374945247481385,
+      "support": 4945.0
+    },
+    ">50K": {
+      "precision": 0.5180567497850387,
+      "recall": 0.7684948979591837,
+      "f1-score": 0.6189008731381612,
+      "support": 1568.0
+    },
+    "accuracy": 0.7721480116689697,
+    "macro avg": {
+      "precision": 0.715679915374965,
+      "recall": 0.7709006340149811,
+      "f1-score": 0.7281976989431498,
+      "support": 6513.0
+    },
+    "weighted avg": {
+      "precision": 0.8181478149906845,
+      "recall": 0.7721480116689697,
+      "f1-score": 0.7848682625457059,
+      "support": 6513.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      3824,
+      1121
+    ],
+    [
+      363,
+      1205
+    ]
+  ],
+  "notes": [
+    "Baseline model: Logistic Regression with class_weight='balanced' for imbalanced classes.",
+    "fnlwgt dropped (census weight, not predictive). education dropped (redundant with education.num).",
+    "Categorical features label-encoded; numeric features standardized.",
+    "80/20 stratified train/test split with random_state=42."
+  ]
+}

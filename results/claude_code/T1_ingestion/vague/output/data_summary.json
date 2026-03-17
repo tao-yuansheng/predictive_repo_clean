@@ -1,0 +1,57 @@
+{
+  "rows_raw": 32561,
+  "cols": 15,
+  "rows_cleaned": 32561,
+  "missing_values_before": {
+    "workclass": 1836,
+    "occupation": 1843,
+    "native.country": 583
+  },
+  "missing_values_after": 0,
+  "target_distribution": {
+    "0": 24720,
+    "1": 7841
+  },
+  "columns": [
+    "age",
+    "workclass",
+    "fnlwgt",
+    "education",
+    "education.num",
+    "marital.status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "capital.gain",
+    "capital.loss",
+    "hours.per.week",
+    "native.country",
+    "income"
+  ],
+  "dtypes": {
+    "age": "int64",
+    "workclass": "object",
+    "fnlwgt": "int64",
+    "education": "object",
+    "education.num": "int64",
+    "marital.status": "object",
+    "occupation": "object",
+    "relationship": "object",
+    "race": "object",
+    "sex": "object",
+    "capital.gain": "int64",
+    "capital.loss": "int64",
+    "hours.per.week": "int64",
+    "native.country": "object",
+    "income": "int64"
+  },
+  "notes": [
+    "Missing values encoded as '?' in raw data; replaced with NaN.",
+    "Categorical NaNs (workclass, occupation, native.country) imputed with column mode.",
+    "Target 'income' encoded as binary: 0=<=50K, 1=>50K.",
+    "Whitespace stripped from all string columns.",
+    "fnlwgt retained but flagged as census weight, not a predictive feature.",
+    "education and education.num are redundant; both retained for downstream tasks."
+  ]
+}

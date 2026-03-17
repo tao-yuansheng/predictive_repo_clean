@@ -1,0 +1,34 @@
+{
+  "dataset_shape": [
+    32561,
+    15
+  ],
+  "class_balance": {
+    "<=50K": 24720,
+    ">50K": 7841,
+    "pct_over_50k": 24.1
+  },
+  "missing_values_in_raw": {
+    "workclass": 1836,
+    "occupation": 1843,
+    "native.country": 583
+  },
+  "key_findings": [
+    "Dataset is imbalanced: ~24% earn >50K.",
+    "Higher education levels strongly correlate with >50K income (Doctorate: ~74%).",
+    "Exec-managerial and Prof-specialty occupations have highest >50K rates (~45-50%).",
+    "Older workers are more likely to earn >50K (median age ~44 vs ~36).",
+    "Males earn >50K at a much higher rate (~31%) than females (~11%).",
+    "capital.gain has the highest correlation with income (r\u22480.22), but is zero for >90% of rows.",
+    "education and education.num are perfectly rank-correlated (r\u22481.0) \u2014 redundant columns.",
+    "fnlwgt shows near-zero correlation with income \u2014 not a useful predictive feature."
+  ],
+  "correlations_with_income": {
+    "age": 0.234,
+    "fnlwgt": -0.009,
+    "education.num": 0.335,
+    "capital.gain": 0.223,
+    "capital.loss": 0.151,
+    "hours.per.week": 0.23
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "dataset": "data/raw/dataset.csv",
+  "rows": 32561,
+  "cols": 15,
+  "flags": [
+    {
+      "feature": "education",
+      "issue_type": "redundant_derived_feature",
+      "severity": "medium",
+      "flagged": true,
+      "description": "education is a categorical encoding of education.num (and vice versa). Each education label maps to exactly one numeric value. Including both is redundant; using education after fitting education.num or vice versa may inflate apparent feature importance without leaking target, but could mask multicollinearity. Recommendation: keep only education.num.",
+      "evidence": "Perfect 1-to-1 mapping: True. Unique num per label: {'10th': 1, '11th': 1, '12th': 1, '1st-4th': 1, '5th-6th': 1, '7th-8th': 1, '9th': 1, 'Assoc-acdm': 1, 'Assoc-voc': 1, 'Bachelors': 1, 'Doctorate': 1, 'HS-grad': 1, 'Masters': 1, 'Preschool': 1, 'Prof-school': 1, 'Some-college': 1}"
+    },
+    {
+      "feature": "fnlwgt",
+      "issue_type": "non_predictive_administrative_variable",
+      "severity": "low",
+      "flagged": true,
+      "description": "fnlwgt is a census sampling weight, not a demographic feature. It reflects how many people a record represents in the census population, derived post-collection from demographic variables. Including it as a predictor is not meaningful \u2014 it is an administrative artifact, not a causal or observable feature. Correlation with income is near zero. Recommendation: drop from model.",
+      "evidence": "Correlation with income: -0.0095"
+    },
+    {
+      "feature": [
+        "marital.status",
+        "relationship"
+      ],
+      "issue_type": "high_single_feature_predictive_power",
+      "severity": "medium",
+      "flagged": true,
+      "description": "Some features achieve suspiciously high AUC individually. This could indicate target leakage (a feature derived from or highly correlated with the target), or simply a genuinely strong predictor. Investigate whether these could be derived from income.",
+      "evidence": {
+        "marital.status": 0.7691,
+        "relationship": 0.7765
+      }
+    },
+    {
+      "feature": "all",
+      "issue_type": "duplicate_rows",
+      "severity": "medium",
+      "flagged": "True",
+      "description": "Found 24 exact duplicate rows (excluding income_bin column). If train/test splits are made after duplicates exist, the same row could appear in both splits, causing optimistic evaluation.",
+      "evidence": "duplicate_count: 24"
+    },
+    {
+      "feature": "workclass",
+      "issue_type": "large_subgroup_target_rate_variation",
+      "severity": "info",
+      "flagged": true,
+      "description": "'workclass' shows a large spread (0.56) in target rate across groups. This is not leakage per se, but indicates strong demographic associations that may cause fairness issues. Ensure train/test splits are stratified.",
+      "evidence": {
+        "Federal-gov": 0.38645833333333335,
+        "Local-gov": 0.29479216435738176,
+        "Never-worked": 0.0,
+        "Private": 0.21009293983368663,
+        "Self-emp-inc": 0.557347670250896,
+        "Self-emp-not-inc": 0.2849271940181031,
+        "State-gov": 0.27195685670261943,
+        "Without-pay": 0.0
+      }
+    }
+  ],
+  "single_feature_aucs": {
+    "age": 0.7005,
+    "workclass": 0.5702,
+    "fnlwgt": 0.5225,
+    "education": 0.6781,
+    "education.num": 0.711,
+    "marital.status": 0.7691,
+    "occupation": 0.7012,
+    "relationship": 0.7765,
+    "race": 0.5381,
+    "sex": 0.6188,
+    "capital.gain": 0.5,
+    "capital.loss": 0.5,
+    "hours.per.week": 0.6743,
+    "native.country": 0.5167
+  },
+  "summary": "No catastrophic target leakage detected. Key concerns: (1) education and education.num are perfectly redundant \u2014 drop one. (2) fnlwgt is a census administrative weight \u2014 not a meaningful predictor, drop it. (3) capital.gain has the highest single-feature AUC but is legitimately predictive (it represents actual financial income). (4) Duplicate rows present \u2014 apply deduplication before train/test splits. (5) Large demographic subgroup target-rate variation warrants fairness analysis."
+}
