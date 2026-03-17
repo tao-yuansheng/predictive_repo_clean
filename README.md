@@ -434,13 +434,13 @@ Do not re-run the session to fix it — record the gap as-is.
 
 ## Step 5 — Scoring [M5]
 
-> Wait until Member 1 has merged all three runner branches into `main`, then pull `main` before starting.
+> Wait until Member 1 has merged all three runner branches into `complete`, then pull `complete` before starting.
 
 ### 5a. Setup
 
 ```bash
-git checkout main
-git pull origin main
+git checkout complete
+git pull origin complete
 ```
 
 Confirm that `results/claude_code/`, `results/codex/`, and `results/antigravity/` are all populated.
@@ -545,9 +545,9 @@ Read tasks/project_context.md then read and follow tasks/run_pipeline_specific_a
 
 ### Member 5 — Scoring
 
-Wait for Member 1 to merge all PRs into `main`, then:
+Wait for Member 1 to merge all PRs into `complete`, then:
 ```bash
-git checkout main
-git pull origin main
+git checkout complete
+git pull origin complete
 ```
 Score all 30 runs following Step 5 above.
