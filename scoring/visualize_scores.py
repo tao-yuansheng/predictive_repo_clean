@@ -31,7 +31,7 @@ matplotlib.rcParams.update({
 # Data
 # ---------------------------------------------------------------------------
 
-AGENTS = ["Claude Code", "Codex", "Google Antigravity"]
+AGENTS = ["Claude Code", "Codex", "Gemini CLI"]
 TASKS = ["T1\nIngestion", "T2\nEDA", "T3\nBaseline\nModel", "T4\nLeakage\nDetection", "T5\nDebugging"]
 TASK_KEYS = ["T1_ingestion", "T2_eda", "T3_model", "T4_leakage", "T5_debugging"]
 DIMENSIONS = ["Correctness", "Statistical\nValidity", "Reproducibility", "Code\nQuality", "Efficiency", "Safety"]
@@ -60,19 +60,19 @@ SCORES = {
     ("codex",       "T5_debugging", "vague"):    [0, 1, 0, 1, 1, 2],
     ("codex",       "T5_debugging", "specific"): [1, 2, 2, 1, 1, 2],
 
-    ("antigravity", "T1_ingestion", "vague"):    [1, 1, 1, 1, 1, 2],
-    ("antigravity", "T1_ingestion", "specific"): [2, 2, 1, 1, 1, 2],
-    ("antigravity", "T2_eda",       "vague"):    [1, 1, 1, 1, 1, 2],
-    ("antigravity", "T2_eda",       "specific"): [2, 2, 1, 1, 1, 2],
-    ("antigravity", "T3_model",     "vague"):    [1, 1, 1, 1, 1, 2],
-    ("antigravity", "T3_model",     "specific"): [2, 2, 2, 1, 1, 2],
-    ("antigravity", "T4_leakage",   "vague"):    [0, 0, 1, 1, 1, 2],
-    ("antigravity", "T4_leakage",   "specific"): [1, 0, 1, 1, 1, 2],
-    ("antigravity", "T5_debugging", "vague"):    [0, 1, 0, 1, 1, 2],
-    ("antigravity", "T5_debugging", "specific"): [1, 1, 1, 1, 1, 2],
+    ("gemini_cli", "T1_ingestion", "vague"):    [1, 1, 1, 1, 1, 2],
+    ("gemini_cli", "T1_ingestion", "specific"): [2, 2, 1, 1, 1, 2],
+    ("gemini_cli", "T2_eda",       "vague"):    [1, 1, 1, 1, 1, 2],
+    ("gemini_cli", "T2_eda",       "specific"): [2, 2, 1, 1, 1, 2],
+    ("gemini_cli", "T3_model",     "vague"):    [1, 1, 1, 1, 1, 2],
+    ("gemini_cli", "T3_model",     "specific"): [2, 2, 2, 1, 1, 2],
+    ("gemini_cli", "T4_leakage",   "vague"):    [0, 0, 1, 1, 1, 2],
+    ("gemini_cli", "T4_leakage",   "specific"): [1, 0, 1, 1, 1, 2],
+    ("gemini_cli", "T5_debugging", "vague"):    [0, 1, 0, 1, 1, 2],
+    ("gemini_cli", "T5_debugging", "specific"): [1, 1, 1, 1, 1, 2],
 }
 
-AGENT_KEYS = ["claude_code", "codex", "antigravity"]
+AGENT_KEYS = ["claude_code", "codex", "gemini_cli"]
 
 # Muted, colorblind-friendly palette (black, dark grey, light grey for B&W printing)
 COLORS = ["#1a1a2e", "#4a7fc1", "#a8c5da"]   # dark navy, medium blue, light blue

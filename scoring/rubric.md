@@ -81,7 +81,7 @@ Fill in after scoring all three agents on both prompt types.
 |-------|------|------|------|------|------|------|------|------|------|------|----------------------|
 | Claude Code | | | | | | | | | | | |
 | Codex | | | | | | | | | | | |
-| Google Antigravity | | | | | | | | | | | |
+| Gemini CLI | | | | | | | | | | | |
 
 v = vague prompt, s = specific prompt
 

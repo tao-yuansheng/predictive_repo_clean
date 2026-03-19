@@ -8,13 +8,13 @@ This file records the final scoring for all 30 benchmark runs on the `complete` 
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Claude Code | 8 | 11 | 9 | 11 | 8 | 12 | 8 | 11 | 7 | 12 | **97** |
 | Codex | 7 | 11 | 7 | 10 | 9 | 11 | 7 | 11 | 5 | 9 | **87** |
-| Google Antigravity | 7 | 9 | 7 | 9 | 7 | 10 | 5 | 6 | 5 | 7 | **72** |
+| Gemini CLI | 7 | 9 | 7 | 9 | 7 | 10 | 5 | 6 | 5 | 7 | **72** |
 
 ## Ranking
 
 1. Claude Code: 97/120
 2. Codex: 87/120
-3. Google Antigravity: 72/120
+3. Gemini CLI: 72/120
 
 ## Task-by-Task Breakdown
 
@@ -38,7 +38,7 @@ This file records the final scoring for all 30 benchmark runs on the `complete` 
 | T4 - Leakage Detection | 7 | 11 |
 | T5 - Debugging | 5 | 9 |
 
-### Google Antigravity
+### Gemini CLI
 
 | Task | Vague /12 | Specific /12 |
 | --- | ---: | ---: |

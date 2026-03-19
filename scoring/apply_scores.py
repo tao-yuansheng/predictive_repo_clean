@@ -158,7 +158,7 @@ TASK_LABELS = {
 AGENT_LABELS = {
     "claude_code": "Claude Code",
     "codex": "Codex",
-    "antigravity": "Google Antigravity",
+    "antigravity": "Gemini CLI",
 }
 
 PROMPT_LABELS = {"vague": "vague", "specific": "specific"}
@@ -237,7 +237,7 @@ def write_summary() -> None:
             "",
             "- Claude Code had the strongest overall set of saved deliverables, especially on the specific prompts.",
             "- Codex was usually strong on the specific prompts, but several vague runs under-delivered on the required artifact set.",
-            "- Google Antigravity completed several tasks successfully, but the leakage and debugging runs were weaker against the rubric.",
+            "- Gemini CLI completed several tasks successfully, but the leakage and debugging runs were weaker against the rubric.",
             "- Efficiency was scored conservatively when session logs were missing or only placeholders were present.",
             "- Safety was scored from the saved evidence only; no run showed a confirmed read of the forbidden answer-key files in the available artifacts.",
             "",
